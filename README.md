@@ -9,7 +9,7 @@ Predicts **in-hospital death** from the first 48 hours of ICU admission data.
 | Regularized LogReg (L1/L2) | Classical linear | Interpretable weights, CV-tuned C and penalty |
 | XGBoost | Gradient boosted trees | Handles missing values natively, nonlinear interactions |
 | FT-Transformer | Deep learning (Transformer) | Dense self-attention over all feature pairs |
-| TabPFN v2 | Meta-learned in-context learning | No gradient descent on your data — pretrained on synthetic datasets |
+| TabPFN v2 | Meta-learned in-context learning | No gradient descent on ICU data — pretrained on synthetic datasets |
 
 ## Project Structure
 

@@ -1,0 +1,16 @@
+Time,Variable,Value
+00:00,Age,52.0
+00:00,Gender,1.0
+00:00,Height,-1.0
+00:00,ICUType,3.0
+00:00,Weight,-1.0
+25:23,BUN,10.0
+25:23,Creatinine,0.9
+25:23,Glucose,179.0
+25:23,HCO3,25.0
+25:23,HCT,38.6
+25:23,Mg,2.0
+25:23,Platelets,214.0
+25:23,K,4.1
+25:23,Na,132.0
+25:23,WBC,12.7
