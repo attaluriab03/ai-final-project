@@ -32,34 +32,6 @@ icu_mortality/
 └── results/                 # output: plots, CSV, saved models
 ```
 
-## Setup
-
-```bash
-# 1. Create environment
-conda create -n icu_mortality python=3.11
-conda activate icu_mortality
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Install TabPFN separately (downloads pretrained weights ~500MB on first run)
-pip install tabpfn
-```
-
-## Data Setup
-
-Place your files as follows:
-```
-data/
-├── files/
-│   ├── 132539.csv
-│   ├── 132540.csv
-│   └── ...          (all 12,000 patient CSVs)
-└── labels.csv
-```
-
-Place `config.yaml` in the project root.
-
 ## Running
 
 ```bash
