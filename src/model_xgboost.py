@@ -21,7 +21,7 @@ from sklearn.pipeline import Pipeline
 from scipy.stats import randint, uniform
 import warnings
 
-from src.preprocessing import XGBoostPreprocessor, labels_to_binary
+from preprocessing import XGBoostPreprocessor, labels_to_binary
 
 
 # ── Hyperparameter search space ───────────────────────────────────────────────

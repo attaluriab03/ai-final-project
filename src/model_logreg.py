@@ -15,11 +15,12 @@ Class imbalance handled via class_weight='balanced'.
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.pipeline import Pipeline
 import warnings
 
-from src.preprocessing import get_logreg_pipeline, labels_to_binary
+from preprocessing import get_logreg_pipeline, labels_to_binary
 
 
 # ── Hyperparameter grid ───────────────────────────────────────────────────────
@@ -107,11 +108,17 @@ def build_model(C: float, penalty: str) -> Pipeline:
 def get_feature_weights(pipeline: Pipeline, feature_names: list) -> pd.Series:
     """
     Extract learned weights from a fitted LogReg pipeline.
-    Useful for interpreting which features drive mortality prediction.
+    Accounts for columns dropped by the imputer (all-NaN features).
     """
     clf = pipeline.named_steps["clf"]
+    imputer = pipeline.named_steps["prep"].named_steps["imputer"]
+
+    # Imputer marks all-NaN columns with nan in statistics_ — get surviving indices
+    surviving_mask = ~np.isnan(imputer.statistics_)
+    surviving_names = [name for name, keep in zip(feature_names, surviving_mask) if keep]
+
     weights = clf.coef_[0]
-    return pd.Series(weights, index=feature_names).sort_values(key=abs, ascending=False)
+    return pd.Series(weights, index=surviving_names).sort_values(key=abs, ascending=False)
 
 
 def train(

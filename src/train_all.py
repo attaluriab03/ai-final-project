@@ -38,15 +38,15 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Add src/ to path
-sys.path.insert(0, os.path.dirname(__file__))
+# sys.path.insert(0, os.path.dirname(__file__))
 
-from src.feature_engineering import build_feature_matrix
-from src.preprocessing import labels_to_binary
-import src.model_logreg as model_logreg
-import src.model_xgboost as model_xgboost
+from feature_engineering import build_feature_matrix
+from preprocessing import labels_to_binary
+import model_logreg as model_logreg
+import model_xgboost as model_xgboost
 import model_ft_transformer
-import src.model_tabpfn as model_tabpfn
-from src.evaluate import evaluate_all, plot_feature_importance_logreg
+import model_tabpfn as model_tabpfn
+from evaluate import evaluate_all, plot_feature_importance_logreg
 
 
 def parse_args():
